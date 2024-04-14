@@ -14,7 +14,7 @@ export default async function page({ searchParams }: any) {
   return (
     <div>
       <h1 className="text-2xl font-bold">
-        Top search Results from &#x201D{searchText}&#x201D
+        Top search Results from &#34;{searchText}&#34;
       </h1>
       <div className="w-full h-full flex flex-row flex-wrap gap-10 items-center justify-center">
         {movie.map((movie: any) => {
@@ -28,7 +28,7 @@ export default async function page({ searchParams }: any) {
                         ? ImageBaseUrl + movie.poster_path
                         : "/mission_movie_poster.webp"
                     }
-                    alt=""
+                    alt={movie.title}
                     width={500}
                     height={500}
                     className="rounded-t-md object-center w-full h-[25rem]"
