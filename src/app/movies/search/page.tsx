@@ -14,7 +14,7 @@ export default async function page({ searchParams }: any) {
   return (
     <div>
       <h1 className="text-2xl font-bold">
-        Top search Results from '{searchText}'
+        Top search Results from &#x201D{searchText}&#x201D
       </h1>
       <div className="w-full h-full flex flex-row flex-wrap gap-10 items-center justify-center">
         {movie.map((movie: any) => {

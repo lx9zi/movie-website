@@ -15,7 +15,10 @@ export default async function Home() {
       <section className="section flexing__layout gap-10 !justify-center">
         {data.map((dt: any) => {
           return (
-            <div className="w-[18rem] h-[20rem] rounded-md overflow-hidden text-black relative">
+            <div
+              className="w-[18rem] h-[20rem] rounded-md overflow-hidden text-black relative"
+              key={dt.id}
+            >
               <Link href={`/movies/${dt.id}`}>
                 <Image
                   src={ImageBaseUrl + dt.poster_path}
