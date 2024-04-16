@@ -1,3 +1,3 @@
-# Movies Website::movie_camera:
+# Movies Website:
 
 ![movies website](./public/movies-website.png)
