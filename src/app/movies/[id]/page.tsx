@@ -11,7 +11,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 
 // import required modules
-import { Navigation, Pagination } from "swiper/modules";
+import { Navigation } from "swiper/modules";
 
 export default async function page({
   params,
@@ -20,13 +20,6 @@ export default async function page({
     id: number;
   };
 }) {
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
   const data = await getMoviesDetails(params.id);
   const similarMovei = await getSimilarMovies(params.id);
   const ImageBaseUrl = "https://www.themoviedb.org/t/p/w220_and_h330_face";
@@ -60,11 +53,11 @@ export default async function page({
           </div>
 
           <div className="flex items-center justify-start gap-3 py-2">
-            {data.genres.map((genres: any) => {
+            {data.genres.map((genres: any, index: any) => {
               return (
                 <div
                   className="p-2 bg-gray-700 text-white hover:bg-gray-300 hover:text-black transition ease-in-out delay-75 rounded-md"
-                  key={genres.id}
+                  key={index}
                 >
                   {genres.name}
                 </div>
@@ -100,7 +93,7 @@ export default async function page({
           {similarMovei.map((movie: any) => {
             return (
               <>
-                <SwiperSlide>
+                <SwiperSlide key={movie.id}>
                   <Link href={`/movies/${movie.id}`}>
                     <Image
                       src={
